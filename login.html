@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .error-message {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav class="flex items-center justify-between p-4 bg-zinc-900 text-white">
+        <div class="flex items-center flex-grow">
+            <img src="images/images (3).jpeg" alt="Logo" class="h-10 w-10 rounded-full object-cover mx-2">
+            <h1 class="text-3xl "><b>CasinoX</b></h1>
+            <ul class="flex space-x-4 mx-80">
+                <li><a href="homepage.html" class="hover:text-yellow-500">Home</a></li>
+                <li><a href="aboutus.html" class="hover:text-yellow-500">About</a></li>
+                <li><a href="games.html" class="hover:text-yellow-500">Game</a></li>
+                <li><a href="blog.html" class="hover:text-yellow-500">Blog</a></li>
+            </ul>
+        </div>
+        <div class="flex items-center space-x-4 flex-grow justify-end">
+            <button class="bg-yellow-500 text-zinc-900 px-4 py-2 rounded"><a href="login.html">Login</a></button>
+            <button class="bg-yellow-500 text-zinc-900 px-4 py-2 rounded"><a href="signup.html">Register</a></button>
+        </div>
+    </nav>
+    
+    <div class="min-h-screen flex items-center justify-center bg-zinc-300 dark:bg-zinc-800">
+        <div class="bg-white dark:bg-zinc-900 shadow-md rounded-md p-6 w-full max-w-md">
+            <h2 class="text-2xl text-center font-bold text-zinc-800 dark:text-zinc-200 mb-4">Login</h2>
+            <div id="error-message" class="error-message mb-4">Invalid username or password</div>
+            <form id="login-form">
+                <div class="mb-4">
+                    <label for="username" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300">Username</label>
+                    <input type="text" id="username" name="username" class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter your username" />
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300">Password</label>
+                    <input type="password" id="password" name="password" class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter your password" />
+                </div>
+                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-300">Login</button>
+            </form>
+            <div class="mt-4 text-center">
+                <p class="text-sm text-zinc-600 dark:text-zinc-400">Don't have an account? <a href="signup.html" class="text-blue-500 hover:underline">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var errorMessage = document.getElementById('error-message');
+
+            if (username === '' || password === '') {
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = 'Invalid username or password';
+            } else {
+                errorMessage.style.display = 'none';
+                // Simulate a successful login for demonstration purposes
+                window.location.href = 'homepage.html';
+            }
+        });
+    </script>
+</body>
+</html>
